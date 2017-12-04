@@ -1,77 +1,272 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<meta name="keywords" content="百度地图,百度地图API，百度地图自定义工具，百度地图所见即所得工具" />
-<meta name="description" content="百度地图API自定义地图，帮助用户在可视化操作下生成百度地图" />
-<title>百度地图API自定义地图</title>
-<!--引用百度地图API-->
-<style type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kode is a Premium Bootstrap Admin Template, It's responsive, clean coded and mobile friendly">
+  <meta name="keywords" content="bootstrap, admin, dashboard, flat admin template, responsive," />
+  <title>GIS 系统</title>
+
+  <!-- ========== Css Files ========== -->
+  <link href="css/root.css" rel="stylesheet">
+  <style type="text/css">
     html,body{margin:0;padding:0;}
     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
     .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
-</style>
-<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script> -->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F3fe418efd203c5d82678599f43f96af"></script>
-</head>
+  </style>
+  </head>
+  <body>
+  <!-- Start Page Loading -->
+  <div class="loading"><img src="img/loading.gif" alt="loading-img"></div>
+  <!-- End Page Loading -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+   <!-- START TOP -->
+  <div id="top" class="clearfix">
 
-<body>
-  <!--百度地图容器-->
-  <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+    <!-- Start App Logo -->
+    <div class="applogo">
+      <a href="index.html" class="logo">GIS 系统</a>
+    </div>
+    <!-- End App Logo -->
+
+    <!-- Start Sidebar Show Hide Button -->
+    <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+    <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+    <!-- End Sidebar Show Hide Button -->
+
+    <!-- Start Searchbox -->
+    <form class="searchform">
+      <input type="text" class="searchbox" id="searchbox" placeholder="搜索">
+      <span class="searchbutton"><i class="fa fa-search"></i></span>
+    </form>
+    <!-- End Searchbox -->
+
+    <!-- Start Top Menu -->
+    <ul class="topmenu">
+     <!--  <li><a href="#">最近</a></li>
+     <li><a href="#">我的</a></li> -->
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">日志 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">照片</a></li>
+          <li><a href="#">数据</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- End Top Menu -->
+
+    <!-- Start Sidepanel Show-Hide Button -->
+    <a href="#sidepanel" class="sidepanel-open-button"><i class="fa fa-outdent"></i></a>
+    <!-- End Sidepanel Show-Hide Button -->
+
+    <!-- Start Top Right -->
+    <ul class="top-right">
+
+    <li class="dropdown link">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle hdbutton">快速录入 <span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-menu-list">
+          <!-- <li><a href="#"><i class="fa falist fa-paper-plane-o"></i>Product or Item</a></li> -->
+          <li><a href="#"><i class="fa falist fa-font"></i>数据</a></li>
+          <li><a href="#"><i class="fa falist fa-file-image-o"></i>照片</a></li>
+          <!-- <li><a href="#"><i class="fa falist fa-file-video-o"></i>Video Gallery</a></li> -->
+        </ul>
+    </li>
+
+   <!--  <li class="link">
+     <a href="#" class="notifications">6</a>
+   </li> -->
+
+    <li class="dropdown link">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="img/profileimg.png" alt="img"><b>管理员</b><span class="caret"></span></a>
+        <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+          <li role="presentation" class="dropdown-header">Profile</li>
+          <!-- <li><a href="#"><i class="fa falist fa-inbox"></i>Inbox<span class="badge label-danger">4</span></a></li>
+          <li><a href="#"><i class="fa falist fa-file-o"></i>Files</a></li> -->
+          <li><a href="#"><i class="fa falist fa-wrench"></i>设置</a></li>
+          <li class="divider"></li>
+          <!-- <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li> -->
+          <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+        </ul>
+    </li>
+
+    </ul>
+    <!-- End Top Right -->
+
+  </div>
+  <!-- END TOP -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEBAR -->
+<div class="sidebar clearfix">
+
+<ul class="sidebar-panel nav">
+  <li class="sidetitle">导航</li>
+  <li><a href="index.html"><span class="icon color5"><i class="fa fa-home"></i></span>主页<span
+          class="label label-default">2</span></a></li>
+  <!-- <li><a href="mailbox.html"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>信息录入<span class="label label-default">19</span></a></li> -->
+   <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>群众管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="maps.html">地图录入</a></li>
+      <li><a href="index.html">表格录入</a></li>
+    </ul>
+  </li>
+  <!-- <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>扶贫数据</a></li> -->
+  <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>图片管理<span class="caret"></span></a>
+    <ul>
+      <li><a href="index.html">图片上传</a></li>
+    </ul>
+  </li>
+  <li><a href="#"><span class="icon color10"><i class="fa fa-check-square-o"></i></span>统计数据
+    <span class="caret"></span></a>
+    <ul>
+      <li><a href="icons.html">月数据统计</a></li>
+      <li><a href="icons.html">周数据统计</a></li>
+      <li><a href="icons.html">每日数据</a></li>
+    </ul>
+  </li>
+  <li><a href="maps.html"><span class="icon color7"><i class="fa fa-map-marker"></i></span>地理位置</a></li>
+  <!-- <li><a href="widgets.html"><span class="icon color11"><i class="fa fa-diamond"></i></span>群众信息</a></li> -->
+  <li><a href="calendar.html"><span class="icon color8"><i class="fa fa-calendar-o"></i></span>事件<span class="label label-danger">NEW</span></a></li>
+  <li><a href="icons.html"><span class="icon color12"><i class="fa fa-font"></i></span>自定义</a></li>
+  <!-- <li><a href="#"><span class="icon color14"><i class="fa fa-paper-plane-o"></i></span>自定义
+    <span class="caret"></span></a>
+    <ul>
+      <li><a href="social-profile.html">Social Profile</a></li>
+      <li><a href="invoice.html">Invoice<span class="label label-danger">NEW</span></a></li>
+      <li><a href="login.html">Login Page</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="forgot-password.html">Forgot Password</a></li>
+      <li><a href="lockscreen.html">Lockscreen</a></li>
+      <li><a href="blank.html">Blank Page</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="404.html">404 Page</a></li>
+      <li><a href="500.html">500 Page</a></li>
+    </ul>
+  </li> -->
+</ul>
+
+<ul class="sidebar-panel nav">
+  <li class="sidetitle">MORE</li>
+  <li><a href="icons.html"><span class="icon color15"><i class="fa fa-columns"></i></span>用户管理</a></li>
+  <li><a href="icons.html"><span class="icon color10"><i class="fa fa-lightbulb-o"></i></span>权限分配</a></li>
+  <li><a href="icons.html"><span class="icon color8"><i class="fa fa-code"></i></span>帮助</a></li>
+  <li><a href="icons.html"><span class="icon color12"><i class="fa fa-file-text-o"></i></span>使用指南</a></li>
+</ul>
+
+<div class="sidebar-plan">
+  Pro Plan<a href="#" class="link">Upgrade</a>
+  <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+  </div>
+</div>
+<span class="space">42 GB / 100 GB</span>
+</div>
+
+</div>
+<!-- END SIDEBAR -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START CONTENT -->
+<div class="content">
+
+  <!-- Start Page Header -->
+  <div class="page-header">
+    <h1 class="title">地图展板</h1>
+      <ol class="breadcrumb">
+        <li><a href="index.html">主页</a></li>
+        <li class="active">地理位置</li>
+      </ol>
+
+    <!-- Start Page Header Right Div -->
+    <div class="right">
+      <div class="btn-group" role="group" aria-label="...">
+        <a href="index.html" class="btn btn-light">主页</a>
+        <a href="#" class="btn btn-light"><i class="fa fa-refresh"></i></a>
+        <a href="#" class="btn btn-light"><i class="fa fa-search"></i></a>
+        <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a>
+      </div>
+    </div>
+    <!-- End Page Header Right Div -->
+
+  </div>
+  <!-- End Page Header -->
+
+  <!-- Start Presentation -->
+  <div class="row">
+
+    <!--div class="col-lg-8 col-md-6 titles">
+      <span class="icon color9-bg" style="padding:8px 22px;"><i class="fa fa-map-marker"></i></span>
+      <h1>Maps</h1>
+      <h4>Simple to edit. No more large amount of code.</h4>
+    </div-->
+    <div class="col-lg-12 col-md-7">
+      <!--div class="widget profile-widget" style="height:380px;"-->
+        <img src="img/map1.png" class="profile-image" alt="img">
+	  <!--/div-->
+    </div>
+    <!--div class="col-lg-9 col-md-7">
+        <!--百度地图容器-->
+        <div style="width:800px;height:600px;border:#ccc solid 1px;" id="dituContent"></div>
+    </div-->
+
+  </div>
+  <!-- End Presentation -->
+
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+<!-- Start Footer -->
+<div class="row footer">
+  <div class="col-md-6 text-left">
+  Copyright © 2015 <a href="http://themeforest.net/user/egemem/portfolio" target="_blank">Egemem</a> All rights reserved.
+  </div>
+  <div class="col-md-6 text-right">
+    Design and Developed by <a href="http://themeforest.net/user/egemem/portfolio" target="_blank">Egemem</a>
+  </div> 
+</div>
+<!-- End Footer -->
+
+
+</div>
+<!-- End Content -->
+ <!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+<!-- START SIDEPANEL -->
+<div role="tabpanel" class="sidepanel">
+  </div>
+
+</div>
+<!-- END SIDEPANEL -->
+<!-- //////////////////////////////////////////////////////////////////////////// --> 
+
+
+
+<!-- ================================================
+jQuery Library
+================================================ -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!-- ================================================
+Bootstrap Core JavaScript File
+================================================ -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<!-- ================================================
+Plugin.js - Some Specific JS codes for Plugin Settings
+================================================ -->
+<script type="text/javascript" src="js/plugins.js"></script>
+
+<!-- ================================================
+Gmaps
+================================================ -->
+<!-- main file -->
+<!--script src="js/gmaps/gmaps.js"></script-->
+<!-- demo codes -->
+<!--script src="js/gmaps/gmaps-plugin.js"></script-->
 </body>
-<script type="text/javascript">
-    //创建和初始化地图函数：
-    function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addRemark();//向地图中添加文字标注
-    }
-
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(118.099674,24.518491);//定义一个中心点坐标
-        map.centerAndZoom(point,17);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
-    }
-
-    //地图事件设置函数：
-    function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-
-    //地图控件添加函数：
-    function addMapControl(){
-        //向地图中添加缩放控件
-    var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
-    map.addControl(ctrl_nav);
-        //向地图中添加缩略图控件
-    var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
-    map.addControl(ctrl_ove);
-        //向地图中添加比例尺控件
-    var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
-    map.addControl(ctrl_sca);
-    }
-
-//文字标注数组
-    var lbPoints = [{point:"118.097653|24.519691",content:"象屿路97号国际航运中心D栋8层03单元A之十一"}
-         ];
-    //向地图中添加文字标注函数
-    function addRemark(){
-        for(var i=0;i<lbPoints.length;i++){
-            var json = lbPoints[i];
-            var p1 = json.point.split("|")[0];
-            var p2 = json.point.split("|")[1];
-            var label = new BMap.Label("<div style='padding:2px;'>"+json.content+"</div>",{point:new BMap.Point(p1,p2),offset:new BMap.Size(3,-6)});
-            map.addOverlay(label);
-            label.setStyle({borderColor:"#999"});
-        }
-    }
-
-    initMap();//创建和初始化地图
-</script>
 </html>
